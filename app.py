@@ -1,4 +1,4 @@
-import flask, hashlib
+import flask, hashlib, dictionary 
 from flask import Flask
 import bs4, requests
 from bs4 import BeautifulSoup as BS
@@ -37,6 +37,8 @@ def main_func():
            if str(hashlib.md5(str(i).encode('utf-8')).hexdigest())==val:
              val=str(i)
              break
+        if str(val) in dictionary.d:
+           val=dictionary.d[str(val)]
         if val==h:
             val='-'
         global_answers.append(val)
