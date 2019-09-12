@@ -1,0 +1,20 @@
+body{
+	background-color: #FAEBD7;
+	font-family: 'Comfortaa', cursive;
+	color: #F4A460
+}
+.wrapper-body{
+	text-align: center
+}
+.wrapper-main{
+	padding: 20px;
+	background-color: #F0FFFF;
+	display: inline-block;
+	
+}
+.wrapper-main h1{
+	
+}
+.get_answers{
+	font-family: 'Comfortaa', cursive;
+}

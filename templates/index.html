@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="rus">
+<head>
+	<meta charset="UTF-8">
+<!-- 	<link rel="stylesheet" href="style.css"> -->
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+	<link rel="SHORTCUT ICON" href="Anonymous_aiga_information_.png" type="image/">
+	<title>Решение теста</title>
+	<style>
+	body{
+	background-color: #FAEBD7;
+	font-family: 'Comfortaa', cursive;
+	color: #F4A460
+}
+.wrapper-body{
+	text-align: center
+}
+.wrapper-main{
+	padding: 20px;
+	background-color: #F0FFFF;
+	display: inline-block;
+	
+}
+.wrapper-main h1{
+	
+}
+.get_answers{
+	font-family: 'Comfortaa', cursive;
+}
+</style>
+</head>
+<body>
+<div class="wrapper-body">  
+	<div class="wrapper-main"> 
+	<h1>Решение теста</h1>
+	<form style='display: inline-block'action='http://127.0.0.1:5000/' method='post'>
+		<input  type="text" name='link' value={{val}}>
+		<button class="get_answers">Получить ответы</button>
+	</form>
+
+
+		<p style='border: 1px solid black;text-align: left;padding: 10px;color: #696969;font-weight: 600;line-height: 1.5em'>
+{{result}}
+	</p>
+
+	</div>
+
+
+</div>
+
+</body>
+</html>
