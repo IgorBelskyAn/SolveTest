@@ -50,8 +50,8 @@ def main_func():
      print (str(i+1)+' .'+global_answers[i]+' '+'<br>')
   print (result)
   if result!=None:
-       return flask.render_template('index.html',result=result,val=link)
- return flask.render_template('index.html',result=flask.Markup('Здесь будут ответы'))
+       return flask.render_template('index.html',result=result,val=link,align='left')
+ return flask.render_template('index.html',result=flask.Markup('Здесь будут ответы'),align='center')
 
   
 if __name__ == "__main__":
