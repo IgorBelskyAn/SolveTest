@@ -1,4 +1,4 @@
-import flask
+import flask, hashlib
 from flask import Flask
 import bs4, requests
 from bs4 import BeautifulSoup as BS
@@ -32,6 +32,10 @@ def main_func():
         global_answers.append(str(k))
      elif content[i].find_all('td',{'class':'text'})!=[]:
         val =content[i].find_all('td',{'class':'text'})[0].find('input')['value']
+        for i in range(-10000,10001):
+           if str(hashlib.md5(str(i).encode('utf-8')).hexdigest())==val:
+             val=str(i)
+             break
         global_answers.append(val)
      else: 
           global_answers.append(' ')
