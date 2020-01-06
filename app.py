@@ -31,17 +31,8 @@ def main_func():
              k = i+1
         global_answers.append(str(k))
      elif content[i].find_all('td',{'class':'text'})!=[]:
-        val =content[i].find_all('td',{'class':'text'})[0].find('input')['value']
-        h = val
-        for i in range(-10000,10001):
-           if str(hashlib.md5(str(i).encode('utf-8')).hexdigest())==val:
-             val=str(i)
-             break
-        if str(val) in dictionary.d:
-           val=dictionary.d[str(val)]
-        if val==h:
-            val='-'
-        global_answers.append(val)
+        continue
+        
      else: 
           global_answers.append(' ')
   result=''
