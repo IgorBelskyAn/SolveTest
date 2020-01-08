@@ -27,23 +27,29 @@
 }
 .get_answers{
 	font-family: 'Comfortaa', cursive;
+	
 }
+.q{color: black;
+font-family: Times New Roman}
+.label{font-weight: 800}
 </style>
 </head>
 <body>
 <div class="wrapper-body">  
-<p>Есть вопросы, нет ответов</p>
+<p>У ответов не вопросов</p>
 	<div class="wrapper-main"> 
 	<h1>Решение теста</h1>
-	<form style='display: inline-block'action='https://solve-stage.herokuapp.com' method='post'>
+	<form style='display: inline-block'action='http://127.0.0.1:5000/' method='post'>
 		<input  type="text" name='link' value={{val}}>
 		<button class="get_answers">Получить ответы</button>
 	</form>
 
 
 		<p style='border: 1px solid black;text-align: {{align}};padding: 10px;color: #696969;font-weight: 600;line-height: 1.5em'>
-{{result}}
-	</p>
+		{{res}} 
+		<div style='display: inline-block; border:1px solid black'>{{title}} {{result}}</div>
+		
+		</p>
 
 	</div>
 

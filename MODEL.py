@@ -2,8 +2,6 @@ import flask, hashlib, dictionary
 from flask import Flask
 import bs4, requests
 from bs4 import BeautifulSoup as BS
-app = Flask(__name__)
-@app.route("/",methods=['POST','GET'])
 def main_func():
  if flask.request.method == 'POST':
   link = flask.request.form['link']
@@ -16,7 +14,6 @@ def main_func():
      if content[i].find_all('td',{'class':'check'})!=[]:
         answers = []
         true_answers = ''
-        m1=i
         pager = content[i].find_all('td',{'class':'check'})
         for i in range(len(content[i].find_all('td',{'class':'check'}))):
            ans = pager[i].find('input')['value']
@@ -24,16 +21,14 @@ def main_func():
         for i in range(len(answers)):
            if answers[i] == '1':
               true_answers+=''+str(i+1)
-              newtext[m1].find_all('td',{'class':'check'})[i].find('input')['checked']=''
         global_answers.append(true_answers)
      elif content[i].find_all('td',{'class':'radio'})!=[]:
         pager = content[i].find_all('td',{'class':'radio'})
         k = 0
-        m = i
         for i in range(len(pager)):
            if pager[i].find('input')['value']=='1':
              k = i+1
-             newtext[m].find_all('td',{'class':'radio'})[i].find('input')['checked']=''
+             
         global_answers.append(str(k))
      elif content[i].find_all('td',{'class':'text'})!=[]:
         val =content[i].find_all('td',{'class':'text'})[0].find('input')['value']
@@ -54,11 +49,7 @@ def main_func():
      result +=str(i+1)+'. '+global_answers[i]+' '+flask.Markup('<br>')
      print (str(i+1)+' .'+global_answers[i]+' '+'<br>')
   print (result)
-  newtext = str(newtext).replace(']','').replace('[','').replace(',','')
   if result!=None:
-       return flask.render_template('indexx.html',result=flask.Markup(newtext),res=result,title=b.find_all('title')[0].next,val=link,align='left')
+       return flask.render_template('indexx.html',result=flask.Markup(content),val=link,align='left')
  return flask.render_template('indexx.html',result=flask.Markup('Здесь будут ответы'),align='center')
 
-  
-if __name__ == "__main__":
-    app.run()
